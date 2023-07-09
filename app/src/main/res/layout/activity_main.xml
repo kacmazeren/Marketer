@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    android:background="#FFFFFFFF" >
+
+    <View
+        android:id="@+id/thickLine"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:background="#FFBB86FC" />
+    <!-- Container for the future results -->
+
+    <!-- Basket Container -->
+    <LinearLayout
+        android:id="@+id/resultsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/searchBox"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="149dp"
+        android:orientation="vertical"
+        android:padding="70dp"
+        android:background="#FF6200EE">
+
+
+        <!-- Add any initial content or placeholder for the results here -->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/basketContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resultsContainer"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        android:padding="50dp"
+        android:background="#FF3700B3">
+
+        <!-- Add any initial content or placeholder for the basket here -->
+
+    </LinearLayout>
+
+    <!-- Search Box -->
+    <EditText
+        android:id="@+id/searchBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:hint="Enter grocery list"
+        android:inputType="text"
+        android:layout_marginBottom="240dp"
+        android:padding="16dp"
+        android:importantForAutofill="yes" />
+
+
+
+    <!-- Account Button -->
+
+    <FrameLayout
+        android:id="@+id/accountButtonContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="21dp"
+        android:minWidth="64dp"
+        android:minHeight="64dp">
+
+        <Button
+            android:id="@+id/accountButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/button_account" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/adminButtonContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/accountButtonContainer"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="47dp"
+        android:minWidth="64dp"
+        android:minHeight="64dp">
+
+        <Button
+            android:id="@+id/adminButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Admin" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="167dp"
+        android:layout_height="29dp"
+        android:layout_alignStart="@+id/thickLine"
+        android:layout_alignEnd="@+id/thickLine"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="106dp"
+        android:text="@string/app_name"/>
+</RelativeLayout>

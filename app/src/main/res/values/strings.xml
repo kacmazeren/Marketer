@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Marketer 1.0</string>
+    <string name="button_account">Sign In / Register</string>
+    <string name="search_box">Enter grocery list</string>
+    <string name="button_sign_in">Sign In</string>
+
+</resources>
