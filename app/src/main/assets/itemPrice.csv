@@ -1,0 +1,59 @@
+ID,Date,Supermarket,Kind,Goods,ProductType,Brand,Weight,Price,UnitPrice
+1,2023-07-11,Tesco,Vegetables,Tomatoes,"Sunstream Tomatoes","Tesco Finest",250G,2.79,11.16
+2,2023-07-11,Tesco,Vegetables,Tomatoes,"Cherry Tomatoes On The Vine",Tesco,300G,2.59,8.63
+3,2023-07-11,Tesco,Vegetables,Tomatoes,"Coctail Tomatoes On The Vine",Tesco,500G,2.79,5.58
+4,2023-07-11,Tesco,Vegetables,Tomatoes,"Cherry Plum Tomatoes","Green Growers",250G,1.79,7.16
+5,2023-07-11,Tesco,Vegetables,Tomatoes,"Vine Tomatoes","Tesco Finest",400G,2.99,7.48
+6,2023-07-11,Tesco,Vegetables,Tomatoes,"Cherry Tomatoes",Tesco,250G,0.99,3.96
+7,2023-07-11,Tesco,Vegetables,Tomatoes,"Baby Plum Tomatoes",Tesco,325G,1.99,6.13
+8,2023-07-11,Tesco,Dairy,Cheese,"Greek Feta Cheese",Tesco,200G,1.49,7.45
+9,2023-07-11,Tesco,Dairy,Cheese,"Barrel Aged Feta Chesee","Tesco Finest",310G,3.49,11.26
+10,2023-07-11,Tesco,Dairy,Cheese,"Organic Greek Feta Chesee",Tesco,200G,3.79,18.95
+11,2023-07-11,Tesco,Dairy,Cheese,"Greek Feta",Tranos,200G,1.09,5.45
+12,2023-07-11,Tesco,Dairy,Cheese,"Authentic Freek Feta Chesee",Yamas,250G,2.79,11.16
+13,2023-07-11,Tesco,Cleaning,"Toilet Paper","Soft ","Tesco Luxury",4Roll,2.50,0.28
+14,2023-07-11,Tesco,Cleaning,"Toilet Paper","Quilts Toilet Tissue","Andrex Supreme",16Roll,13.89,0.56
+15,2023-07-11,Tesco,Cleaning,"Toilet Paper","SoftQuilted Tissue","Tesco Luxury",6Roll,4.50,0.31
+16,2023-07-11,Tesco,Cleaning,"Toilet Paper","Soft Touch Toilet Tissue",Nicky,16Roll,6.50,0.20
+17,2023-07-11,Tesco,Cleaning,"Toilet Paper","Soft Tissue","Tesco Luxury",9Roll,4.00,0.20
+18,2023-07-11,Tesco,Pet,Litter,"Lightweight Cat Litter",Tesco,10L,2.49,0.24
+19,2023-07-11,Tesco,Drinks,Alcohol,"Irish Whiskey",Jameson,70cl,31.00,31.00
+20,2023-07-11,Tesco,Drinks,Alcohol,"Tennessee Whiskey","Jack Daniels",70cl,35.00,35.00
+21,2023-07-11,Tesco,Drinks,Alcohol,"Scotch Whiskey",Teachers,70cl,25.00,25.00
+22,2023-07-11,Tesco,Drinks,Alcohol,Jim,"Jim Beam",70cl,27.99,27.99
+23,2023-07-11,Tesco,Drinks,Alcohol,North,"The Famous Grouse Scotch Whiskey",70cl,22.10,22.10
+24,2023-07-11,Lidl,Vegetables,Tomatoes,"Plum Tomatoes",Lidl,500G,1.99,3.98
+25,2023-07-11,Lidl,Vegetables,Tomatoes,"Cherry Vine  Tomatoes",Lidl,500G,2.79,5.58
+26,2023-07-11,Lidl,Vegetables,Tomatoes,"Cherry Tomatoes",Lidl,250G,0.99,3.96
+27,2023-07-11,Lidl,Vegetables,Tomatoes,"Irish Strebena Tomatoes",Lidl,250G,2.69,10.76
+28,2023-07-11,Lidl,Vegetables,Tomatoes,"Marvellous Tomatoes",Lidl,300G,2.79,9.30
+29,2023-07-11,Lidl,Dairy,Cheese,"Greek Feta Cheese",Milbona,200G,1.09,5.45
+30,2023-07-11,Lidl,Dairy,Cheese,"Greek Style Salad  Chesee",Simply,200G,1.05,5.25
+31,2023-07-11,Lidl,Cleaning,"Toilet Paper","Gentle Toilet Paper",Floralys,24Roll,8.49,0.22
+32,2023-07-11,Lidl,Cleaning,"Toilet Paper","Quilted Toilet Tissue",Floralys,9Roll,4.39,0.30
+33,2023-07-11,Lidl,Cleaning,"Toilet Paper","Quilted Tissue",Floralys,4Roll,2.65,0.41
+34,2023-07-11,Lidl,Cleaning,"Toilet Paper","Soft Toilet Tissue",Floralys,9Roll,2.29,0.12
+35,2023-07-11,Lidl,Cleaning,"Toilet Paper","Toilet Rolls",Cushelle,24Roll,16.50,0.38
+36,2023-07-11,Lidl,Pet,Litter,"Hygiene Cat Litter",Tesco,7.5L,4.99,0.67
+37,2023-07-11,Lidl,Drinks,Alcohol,"Irish Whiskey",Jameson,70cl,30.00,30.00
+38,2023-07-11,Lidl,Drinks,Alcohol,Irish,"Dundalgan Whiskey",70cl,22.09,22.09
+39,2023-07-11,Lidl,Drinks,Alcohol,"Scotch Whiskey",Balmuir,70cl,22.99,22.99
+40,2023-07-11,Lidl,Drinks,Alcohol,Bourbon,"Western Gold ",70cl,22.29,22.29
+41,2023-07-11,Dunnes,Vegetables,Tomatoes,"Piccolo Tomatoes",Dunnes,250G,2.79,11.16
+42,2023-07-11,Dunnes,Vegetables,Tomatoes,"Cherry Vine Tomatoes",Dunnes,300G,2.69,8.97
+43,2023-07-11,Dunnes,Vegetables,Tomatoes,"Sunstream Tomatoes",Dunnes,Dunnes,2.79,11.16
+44,2023-07-11,Dunnes,Vegetables,Tomatoes,"Midi Plum Tomatoes",Dole,325G,1.99,6.12
+45,2023-07-11,Dunnes,Vegetables,Tomatoes,"Sweet Sunrise Cherry Tomatoes",Dunnes,250G,2.49,9.96
+46,2023-07-11,Dunnes,Vegetables,Tomatoes,"Plum Tomatoes","My Family Favourites",250G,0.99,3.96
+47,2023-07-11,Dunnes,Dairy,Cheese,"Cubed Greek Feta In Extra Virgin Oil",Dunnes,150G,2.75,5.45
+48,2023-07-11,Dunnes,Dairy,Cheese,"Greek Style Salad  Chesee",Simply,200G,1.05,5.25
+49,2023-07-11,Dunnes,Cleaning,"Toilet Paper","Quilted Dreams Toilet Tissue",Kittensoft,9Roll,7.00,0.77
+50,2023-07-11,Dunnes,Cleaning,"Toilet Paper","Toilet Tissue",Kittensoft,9Roll,6.50,0.72
+51,2023-07-11,Dunnes,Cleaning,"Toilet Paper","White Toilet Rolls",Cushelle,4Roll,3.25,0.81
+52,2023-07-11,Dunnes,Cleaning,"Toilet Paper","Classic Clean",Andex,4Roll,3.60,0.90
+53,2023-07-11,Dunnes,Cleaning,"Toilet Paper","Toilet Rolls",Cushelle,12Roll,8.50,0.70
+54,2023-07-11,Dunnes,Pet,Litter,"Cat Litter",Thomas,8L,7.49,0.93
+55,2023-07-11,Dunnes,Drinks,Alcohol,"Irish Whiskey Cask Stout",Jameson,70cl,39.00,39.00
+56,2023-07-11,Dunnes,Drinks,Alcohol,"Irish Whiskey Cold Brew",Jameson,70cl,32.00,22.09
+57,2023-07-11,Dunnes,Drinks,Alcohol,"Tennessee Whiskey","Jack Daniels",70cl,35.00,35.00
+58,2023-07-11,Dunnes,Drinks,Alcohol,"Irish Whiskey","The Dubliner",70cl,28.00,28.00

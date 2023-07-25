@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@drawable/background"
     tools:context=".EmailActivity">
 
     <EditText
@@ -25,19 +26,19 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/signInButton"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Sign In" />
+        android:text="Login" />
 
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signInButton"
+        android:layout_below="@id/loginButton"
         android:layout_marginTop="16dp"
         android:hint="Enter your name"
         android:padding="13dp" />

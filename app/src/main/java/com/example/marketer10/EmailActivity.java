@@ -20,12 +20,13 @@ import java.time.format.DateTimeFormatter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 public class EmailActivity extends AppCompatActivity {
 
     private EditText emailEditText, passwordEditText, nameEditText, surnameEditText, phoneEditText, addressEditText, newPasswordEditText;
     private RadioGroup membershipTypeRadioGroup;
-    private Button signInButton, registerButton;
+    private Button loginButton, registerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +42,10 @@ public class EmailActivity extends AppCompatActivity {
         addressEditText = findViewById(R.id.addressEditText);
         newPasswordEditText = findViewById(R.id.newPasswordEditText);
         membershipTypeRadioGroup = findViewById(R.id.membershipTypeRadioGroup);
-        signInButton = findViewById(R.id.signInButton);
+        loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = emailEditText.getText().toString().trim();
@@ -122,12 +123,14 @@ public class EmailActivity extends AppCompatActivity {
 
     }
 
-
+ArrayList empty= new ArrayList<>();
         private void openAccountPage(String email) {
         // Perform the necessary action after successful sign-in or registration
         Intent intent = new Intent(EmailActivity.this, AccountActivity.class);
         intent.putExtra("email", email);
-        startActivity(intent);
+            intent.putStringArrayListExtra("groceryList", new ArrayList<>(empty));
+
+            startActivity(intent);
     }
 
     private void sendRegistrationEmail(String recipientEmail) {

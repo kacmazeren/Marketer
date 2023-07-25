@@ -1,0 +1,236 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".Statistic">
+    <TextView
+        android:id="@+id/orderHistoryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="Order History"
+        android:textSize="18sp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="267dp"
+        android:layout_weight="1"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="260dp">
+
+        <TableLayout
+            android:id="@+id/historyTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Supermarket"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Type"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weight"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginBottom="200dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:onClick="deleteList"
+            android:text="Delete Shopping History" />
+        />
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/inflationTable"
+        android:layout_width="wrap_content"
+        android:layout_height="233dp"
+        android:layout_marginLeft="10dp"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Days" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegetables" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dairy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pet" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alcohol" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cleaning" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/personalInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal Inflation Rate" />
+
+            <TextView
+                android:id="@+id/personalVegetablesInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/personalDairyInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/personalPetInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/personalAlcoholInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/personalCleaningInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <!-- Add the remaining TextViews for each category with unique IDs -->
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/goodsInfalation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goods Inflation Rate" />
+
+            <TextView
+                android:id="@+id/goodsVegetablesInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/goodslDairyInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/goodsPetInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/goodsAlcoholInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/goodsCleaningInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <!-- Add the remaining TextViews for each category with unique IDs -->
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/generalInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00BCD4"
+                android:text="General Inflation Rate" />
+
+            <TextView
+                android:id="@+id/gnrlInflationRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00BCD4" />
+            <!-- Add the remaining TextViews for each category with unique IDs -->
+        </TableRow>
+
+
+        <TableRow>
+            <TextView
+                android:id="@+id/averagePersonalInflation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00D415"
+                android:text="Average Personal Inflation Rate" />
+
+            <TextView
+                android:id="@+id/averagePersonalInflationRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00D415" />
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

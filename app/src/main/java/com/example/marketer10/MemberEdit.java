@@ -27,6 +27,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -209,7 +210,14 @@ public class MemberEdit extends AppCompatActivity {
 
                     // Add markets to listViewMarkets.
                     List<Market> markets = placesResponse.getResults();
+                    List<Market> filteredMarkets = new ArrayList<>();
 
+                    for (Market market : markets) {
+                        String marketName = market.getName().toLowerCase();
+                        if (marketName.contains("tesco") || marketName.contains("dunnes") || marketName.contains("lidl")) {
+                            filteredMarkets.add(market);
+                        }
+                    }
                     // Perform reverse geocoding for each market to get the address
                     Geocoder geocoder = new Geocoder(MemberEdit.this, Locale.getDefault());
 

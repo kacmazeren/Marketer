@@ -1,7 +1,10 @@
 package com.example.marketer10;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -9,9 +12,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "MarketerDB";
     private static final int DATABASE_VERSION = 1;
-
+    private Context context;
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -44,6 +48,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (passwordIndex != -1) {
                 String storedHashedPassword = cursor.getString(passwordIndex);
                 boolean isMatch = PasswordHelper.checkPassword(password, storedHashedPassword);
+
+                // If the password matches, save the logged in status and email
+                if (isMatch) {
+                    SharedPreferences prefs = context.getSharedPreferences("MyApp", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("isUserLoggedIn", true);
+                    editor.putString("loggedInEmail", email);
+                    editor.apply();
+                }
                 cursor.close();
                 return isMatch;
             }
@@ -51,6 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return false;
     }
+
 
 
     public boolean saveMemberToDatabase(String email, String name, String surname, String phone, String address, String password, String memberNumber) {

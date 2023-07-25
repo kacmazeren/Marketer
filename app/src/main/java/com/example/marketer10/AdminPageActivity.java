@@ -13,7 +13,10 @@ import android.widget.ListView;
 import android.database.Cursor;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +27,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AdminPageActivity extends AppCompatActivity {
     private Button listMembersButton;
     private Button findMemberButton;
+    private Button productsButton;
     private Button exitButton;
     private ListView lvMembers;
+    private ListView lvProducts;
     private DatabaseHelper databaseHelper;
 
     @Override
@@ -36,7 +41,9 @@ public class AdminPageActivity extends AppCompatActivity {
         listMembersButton = findViewById(R.id.btn_list_members);
         findMemberButton = findViewById(R.id.btn_find_member);
         exitButton = findViewById(R.id.btn_exit);
+        productsButton = findViewById(R.id.btn_products);
         lvMembers = findViewById(R.id.lv_members);
+        lvProducts = findViewById(R.id.lv_products);
         databaseHelper = new DatabaseHelper(this);
 
         listMembersButton.setOnClickListener(new View.OnClickListener() {
@@ -75,14 +82,20 @@ public class AdminPageActivity extends AppCompatActivity {
                             } while (cursor.moveToNext());
                             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(AdminPageActivity.this, android.R.layout.simple_list_item_1, memberList);
                             lvMembers.setAdapter(arrayAdapter);
+                            lvMembers.setVisibility(View.VISIBLE);
+                            lvProducts.setVisibility(View.GONE);
                             cursor.close();
                         } else {Toast.makeText(AdminPageActivity.this, "No member found with this name", Toast.LENGTH_SHORT).show();
                         }                    }                });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();                    }                });
-                builder.show();            }        });
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+            }
+        });
 
 
         exitButton.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +105,34 @@ public class AdminPageActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        lvProducts = findViewById(R.id.lv_products);
+        productsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+
+                    InputStream inputStream = getAssets().open("itemPrice.csv");
+
+                    PriceCSVReader priceCSVReader = new PriceCSVReader(inputStream);
+                    List<Product> productList = priceCSVReader.parse();
+
+                    ArrayList<String> productStringList = new ArrayList<>();
+                    for (Product product : productList) {
+                        productStringList.add(product.toString());
+                    }
+
+                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(AdminPageActivity.this, android.R.layout.simple_list_item_1, productStringList);
+                    lvProducts.setAdapter(arrayAdapter);
+                    lvProducts.setVisibility(View.VISIBLE);
+                    lvMembers.setVisibility(View.GONE);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
     private void loadMemberData() {
         ArrayList<String> memberList = new ArrayList<>();
@@ -107,5 +148,7 @@ public class AdminPageActivity extends AppCompatActivity {
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, memberList);
         lvMembers.setAdapter(arrayAdapter);
+        lvMembers.setVisibility(View.VISIBLE);
+        lvProducts.setVisibility(View.GONE);
     }
 }

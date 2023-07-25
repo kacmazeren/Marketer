@@ -4,110 +4,233 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".MainActivity"
-    android:background="#FFFFFFFF" >
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/thickLine"
+    <ImageView
+        android:id="@+id/iv_cart"
         android:layout_width="match_parent"
-        android:layout_height="28dp"
-        android:background="#FFBB86FC" />
-    <!-- Container for the future results -->
-
-    <!-- Basket Container -->
+        android:layout_height="match_parent"
+        android:layout_marginTop="470dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/basket" />
     <LinearLayout
-        android:id="@+id/resultsContainer"
+        android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/searchBox"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="149dp"
-        android:orientation="vertical"
-        android:padding="70dp"
-        android:background="#FF6200EE">
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marketer"
+            android:textSize="24sp"
+            android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/entranceBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@+id/titleBar">
 
 
-        <!-- Add any initial content or placeholder for the results here -->
-
+        <Button
+            android:id="@+id/loginRegisterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login/Register" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/basketContainer"
+        android:id="@+id/productButtonsTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/resultsContainer"
-        android:layout_marginTop="100dp"
-        android:orientation="vertical"
-        android:padding="50dp"
-        android:background="#FF3700B3">
+        android:orientation="horizontal"
+        android:layout_below="@+id/entranceBar">
 
-        <!-- Add any initial content or placeholder for the basket here -->
+        <Button
+            android:id="@+id/dairyButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dairy" />
 
+        <Button
+            android:id="@+id/petButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pet" />
+
+        <Button
+            android:id="@+id/alcoholButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Alcohol" />
     </LinearLayout>
 
-    <!-- Search Box -->
-    <EditText
-        android:id="@+id/searchBox"
+    <LinearLayout
+        android:id="@+id/productButtonsBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/productButtonsTop">
+
+        <Button
+            android:id="@+id/vegetablesButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Vegetables" />
+
+
+
+        <Button
+            android:id="@+id/cleaningButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cleaning" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/subProductButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productButtonsBottom"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Insert dynamically created sub-product buttons here -->
+        <ImageButton
+            android:id="@+id/tomatoesButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/domates"
+            android:background="?android:attr/selectableItemBackground"
+            android:visibility="gone"/>
+        <ImageButton
+            android:id="@+id/cheeseButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/chesee"
+            android:background="?android:attr/selectableItemBackground"
+            android:visibility="gone"/>
+        <ImageButton
+            android:id="@+id/catButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cat"
+            android:background="?android:attr/selectableItemBackground"
+            android:visibility="gone"/>
+        <ImageButton
+            android:id="@+id/irelandButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ireland"
+            android:background="?android:attr/selectableItemBackground"
+            android:visibility="gone"/>
+        <ImageButton
+            android:id="@+id/paperButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/paper"
+            android:background="?android:attr/selectableItemBackground"
+            android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/header1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Supermarket"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/header2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Goods"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/header3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Price"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/header4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UnitPrice"
+                android:gravity="center"/>
+        </LinearLayout>
+
+
+            <ListView
+                android:id="@+id/lv_products"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:textSize="16sp" />
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rl_cart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:hint="Enter grocery list"
-        android:inputType="text"
-        android:layout_marginBottom="240dp"
-        android:padding="16dp"
-        android:importantForAutofill="yes" />
+        android:layout_marginTop="2000dp">
 
-
-
-    <!-- Account Button -->
-
-    <FrameLayout
-        android:id="@+id/accountButtonContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="21dp"
-        android:minWidth="64dp"
-        android:minHeight="64dp">
-
-        <Button
-            android:id="@+id/accountButton"
+        <RelativeLayout
+            android:id="@+id/cart_products"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/button_account" />
+            android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/grocery"
+                android:layout_width="match_parent"
+                android:layout_height="169dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="100dp"
+                android:layout_marginRight="60dp"
+                android:textSize="16sp" />
 
-    </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/adminButtonContainer"
+            <!-- This part is the area where the products will come. You should add the products programmatically. -->
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/setBasketButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toStartOf="@+id/accountButtonContainer"
-        android:layout_marginEnd="16dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="47dp"
-        android:minWidth="64dp"
-        android:minHeight="64dp">
+        android:layout_marginTop="650dp"
+        android:layout_marginLeft="280dp"
+        android:layout_height="48dp"
+        android:text="Basket" />
 
-        <Button
-            android:id="@+id/adminButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Admin" />
-
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="167dp"
-        android:layout_height="29dp"
-        android:layout_alignStart="@+id/thickLine"
-        android:layout_alignEnd="@+id/thickLine"
-        android:layout_marginStart="140dp"
-        android:layout_marginEnd="106dp"
-        android:text="@string/app_name"/>
 </RelativeLayout>

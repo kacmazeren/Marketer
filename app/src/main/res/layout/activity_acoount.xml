@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
+    android:background="@drawable/background"
     android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/userInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,42 +89,48 @@
             android:inputType="textPersonName"
             android:enabled="false" />
 
+    </LinearLayout>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+       <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editTextLocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Location"
-            android:inputType="text"
-            android:enabled="false" />
 
-    </LinearLayout>
+           <Button
+               android:id="@+id/buttonEdit"
+               android:layout_width="74dp"
+               android:layout_height="match_parent"
+               android:onClick="onEditButtonClick"
+               android:text="Edit" />
 
-    <Button
-        android:id="@+id/buttonEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit" />
-
-    <Button
+           <Button
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         android:visibility="gone" />
 
-    <Button
-        android:id="@+id/buttonChangePassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change Password" />
+           <Button
+               android:id="@+id/buttonChangePassword"
+               android:layout_width="127dp"
+               android:layout_height="wrap_content"
+               android:text="Change Password" />
+
+           <Button
+               android:id="@+id/shoppingButton"
+               android:layout_width="97dp"
+               android:layout_height="wrap_content"
+               android:text="Shop Here" />
+           <Button
+               android:id="@+id/statisticButton"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Statistic"
+               android:visibility="gone"/>
+</LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -151,4 +168,182 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/basketTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="Your Basket"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="271dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Tesco"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/totalTesco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/distanceTesco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Distance: "
+                    android:textStyle="bold" />
+
+                <ListView
+                    android:id="@+id/listViewTesco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/darker_gray"
+                    android:dividerHeight="0.5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Lidl"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/totalLidl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/distanceLidl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Distance: "
+                    android:textStyle="bold" />
+
+                <ListView
+                    android:id="@+id/listViewLidl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/darker_gray"
+                    android:dividerHeight="0.5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Dunnes"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/totalDunnes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/distanceDunnes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Distance: "
+                    android:textStyle="bold" />
+
+                <ListView
+                    android:id="@+id/listViewDunnes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/darker_gray"
+                    android:dividerHeight="0.5dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/adminButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin"
+         android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/markerTescoButton"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:onClick="markerTesco"
+        android:text="Mark Tesco" />
+
+    <Button
+        android:id="@+id/markerLidlButton"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:onClick="markerLidl"
+        android:text="Mark Lidl" />
+
+    <Button
+        android:id="@+id/saveListButton"
+        android:layout_width="104dp"
+        android:layout_height="match_parent"
+        android:onClick="saveList"
+        android:text="Save List" />
+
 </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="270dp" />
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
