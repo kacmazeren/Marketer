@@ -5,9 +5,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+
 import android.location.Location;
-import android.net.Uri;
+
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -37,7 +37,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.maps.model.LatLng;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -70,10 +70,10 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
         double totalTescoPrice = 0.0;
         for (String item : groceryListTesco) {
             String[] parts = item.split(",");
-            String priceWithDollar = parts[1]; // Second part is Price
-            String priceWithoutDollar = priceWithDollar.replace("$", "");
+            String priceWithDollar = parts[2]; // Second part is Price
+            String priceWithoutDollar = priceWithDollar.replace("€", "");
             double price = Double.parseDouble(priceWithoutDollar);
-            int quantity = Integer.parseInt(parts[2].trim()); // Third part is Quantity
+            int quantity = Integer.parseInt(parts[3].trim()); // Third part is Quantity
             totalTescoPrice += price * quantity;
         }
         return totalTescoPrice;
@@ -83,10 +83,10 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
         double totalLidlPrice = 0.0;
         for (String item : groceryListLidl) {
             String[] parts = item.split(",");
-            String priceWithDollar = parts[1]; // Second part is Price
-            String priceWithoutDollar = priceWithDollar.replace("$", "");
+            String priceWithDollar = parts[2]; // Second part is Price
+            String priceWithoutDollar = priceWithDollar.replace("€", "");
             double price = Double.parseDouble(priceWithoutDollar);
-            int quantity = Integer.parseInt(parts[2].trim()); // Third part is Quantity
+            int quantity = Integer.parseInt(parts[3].trim()); // Third part is Quantity
             totalLidlPrice += price * quantity;
         }
         return totalLidlPrice;
@@ -96,10 +96,10 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
         double totalDunnesPrice = 0.0;
         for (String item : groceryListDunnes) {
             String[] parts = item.split(",");
-            String priceWithDollar = parts[1]; // Second part is Price
-            String priceWithoutDollar = priceWithDollar.replace("$", "");
+            String priceWithDollar = parts[2]; // Second part is Price
+            String priceWithoutDollar = priceWithDollar.replace("€", "");
             double price = Double.parseDouble(priceWithoutDollar);
-            int quantity = Integer.parseInt(parts[2].trim()); // Third part is Quantity
+            int quantity = Integer.parseInt(parts[3].trim()); // Third part is Quantity
             totalDunnesPrice += price * quantity;
         }
         return totalDunnesPrice;
@@ -120,8 +120,11 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
             // Google Play Services are available
             setContentView(R.layout.activity_acoount);
             // Continue with map setup...
-        } else {
-            // Google Play Services are not available. Handle the error.
+        } else {setContentView(R.layout.activity_acoount);
+            // Google Play Services are not available.
+            TextView errorMessage = findViewById(R.id.map_error_message);
+            errorMessage.setVisibility(View.VISIBLE);
+
         }
         // Initialize EditTexts
         editTextName = findViewById(R.id.editTextName);
@@ -158,15 +161,9 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
         }
 
 
-
-        // Create an instance of ProductDbHelper
-        ProductDBHelper productHelper = new ProductDBHelper(this);
-
         // Create an instance of ShoppingListDbHelper
         ShoppingListDbHelper shoppingHelper = new ShoppingListDbHelper(this);
 
-        // Get the database in write mode
-        SQLiteDatabase shoppingSQHelper = shoppingHelper.getWritableDatabase();
 
         Button shopHereButton = findViewById(R.id.shoppingButton);
         shopHereButton.setOnClickListener(new View.OnClickListener() {
@@ -199,10 +196,11 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
         // Divide the groceryList into separate lists
         for (String item : groceryList) {
             String[] parts = item.split(","); // Assume each item is in format "Store,ProductType,Price"
+           String supermarket = parts[0];
             String productType = parts[1]; // Second part is ProductType
             String price = parts[2]; // Third part is Price
             int quantity = 1; // Initialize the quantity to 1
-            String productInfo = productType + ", " + price+ ", " + quantity;// Combine them into a single string
+            String productInfo = supermarket + ", " + productType + ", " + price+ ", " + quantity;// Combine them into a single string
 
             if (item.contains("Tesco")) {
                 groceryListTesco.add(productInfo);
@@ -595,7 +593,7 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
 
     public void getNearbyMarkets(double userLatitude, double userLongitude, String AIzaSyBzp53E_d1EqzoAaR0StZR6m_uuQi07nU0) {
 
-        LatLng userLocation = new LatLng(userLatitude, userLongitude);
+
 
         // Initialize Retrofit
         Retrofit retrofit = new Retrofit.Builder()

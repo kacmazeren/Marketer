@@ -69,12 +69,7 @@ public class PriceChangeCalculator {
                 inflationRateList.add(new InflationRate(record[0], record[3], record[4], inflationRate));
             }
         }
-
-        // Print out the inflation rate list
-        for (InflationRate rate : inflationRateList) {
-
-        }
-    }
+  }
 
     public static double computeAverageInflationRate(String kind) {
         double sum = 0;

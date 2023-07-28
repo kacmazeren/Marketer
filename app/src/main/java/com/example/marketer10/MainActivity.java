@@ -1,12 +1,11 @@
 package com.example.marketer10;
 
-import static androidx.core.location.LocationManagerCompat.getCurrentLocation;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.Manifest;
 import android.app.Dialog;
@@ -16,6 +15,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -27,10 +27,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+
 import android.widget.Toast;
+
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -64,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         lvProducts = findViewById(R.id.lv_products);
         grocery = findViewById(R.id.grocery);
         groceryListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, groceryList);
@@ -88,15 +89,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                boolean isUserLoggedIn = prefs.contains("isUserLoggedIn") ? prefs.getBoolean("isUserLoggedIn", false) : false;
                 Gson gson = new Gson();
                 String json = gson.toJson(groceryList);
                 editor.putString("groceryList", json);
                 editor.apply();
 
-                if (isUserLoggedIn) {
-                    // User is already logged in, so we don't need to show the login dialog
-                    // We can directly open the AccountActivity
+                Button loginRegisterButton = findViewById(R.id.loginRegisterButton);
+
+
+                if (fromAccountActivity ) {
                     String email = prefs.getString("loggedInEmail", "");
                     Intent intent = new Intent(MainActivity.this, AccountActivity.class);
                     intent.putExtra("email", email);

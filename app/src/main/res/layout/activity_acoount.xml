@@ -341,6 +341,14 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="270dp" />
+        <TextView
+            android:id="@+id/map_error_message"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:gravity="center"
+            android:text="Google Play Services are not available."
+            android:visibility="gone" />
+
     </LinearLayout>
 </LinearLayout>
 

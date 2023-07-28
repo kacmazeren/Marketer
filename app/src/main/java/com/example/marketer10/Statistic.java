@@ -2,11 +2,10 @@ package com.example.marketer10;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
+
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TableLayout;
@@ -16,11 +15,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvValidationException;
+
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -102,7 +100,7 @@ public class Statistic extends AppCompatActivity {
             Product product = productMap.get(supermarket + productType);
             if(  productMemberNumber.equals(memberNumber)) {
                 String formattedDate = outputFormat.format(product.getDate());
-                String productInfo = product.getID() + " - " + formattedDate + " - " + product.getSupermarket() + " - " + product.getProductType() + " - " + product.getWeight() + " - " + product.getPrice() + " - " + item.getMemberNumber();
+                String productInfo = product.getID() + " - " + formattedDate + " - " + product.getSupermarket() + " - " + product.getProductType() + " - " + product.getWeight() + " - " + product.getPrice();
                 matchedProducts.add(productInfo);
             }
         }
@@ -155,8 +153,8 @@ public class Statistic extends AppCompatActivity {
         }
         TextView goodsAlcoholInflation = findViewById(R.id.goodsAlcoholInflation);
         try {
-            double avgAlcoholInflation = PriceChangeCalculator.calculateAndReturnAvgInflationRate("Drinks", this);
-            goodsAlcoholInflation.setText(String.format("%.2f%%", avgAlcoholInflation * 100));
+            double avgDrinksInflation = PriceChangeCalculator.calculateAndReturnAvgInflationRate("Drinks", this);
+            goodsAlcoholInflation.setText(String.format("%.2f%%", avgDrinksInflation * 100));
         } catch (Exception e) {
             // Handle exception
             e.printStackTrace();
@@ -172,12 +170,12 @@ public class Statistic extends AppCompatActivity {
         TextView gnrlInflationRate = findViewById(R.id.gnrlInflationRate);
         try {
             double avgCleaningInflation = PriceChangeCalculator.calculateAndReturnAvgInflationRate("Cleaning", this);
-            double avgAlcoholInflation = PriceChangeCalculator.calculateAndReturnAvgInflationRate("Alcohol", this);
+            double avgDrinksInflation = PriceChangeCalculator.calculateAndReturnAvgInflationRate("Drinks", this);
             double avgPetInflation = PriceChangeCalculator.calculateAndReturnAvgInflationRate("Pet", this);
             double avgDairyInflation = PriceChangeCalculator.calculateAndReturnAvgInflationRate("Dairy", this);
             double avgVegetablesInflation = PriceChangeCalculator.calculateAndReturnAvgInflationRate("Vegetables", this);
 
-            double generalInflationRate = (avgCleaningInflation + avgAlcoholInflation + avgPetInflation + avgDairyInflation + avgVegetablesInflation) / 5;
+            double generalInflationRate = (avgCleaningInflation + avgDrinksInflation + avgPetInflation + avgDairyInflation + avgVegetablesInflation) / 5;
 
 
             gnrlInflationRate.setText(String.format("%.2f%%", generalInflationRate * 100));

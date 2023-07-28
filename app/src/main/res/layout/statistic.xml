@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:onClick="deleteList"
             android:text="Delete Shopping History" />
-        />
+
     </LinearLayout>
 
     <TableLayout

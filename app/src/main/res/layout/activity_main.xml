@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@drawable/background"
+    android:background="@drawable/alternativebackground"
     tools:context=".MainActivity">
+
 
     <ImageView
         android:id="@+id/iv_cart"
@@ -26,7 +27,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Marketer"
-            android:textSize="24sp"
+            android:gravity="center"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#B08F446C"
             android:layout_weight="1"/>
 
         </LinearLayout>
@@ -44,7 +48,8 @@
             android:id="@+id/loginRegisterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login/Register" />
+            android:text="Login/Register"
+            android:visibility="visible"/>
     </LinearLayout>
 
     <LinearLayout
@@ -193,7 +198,8 @@
                 android:id="@+id/lv_products"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:background="#40070606"/>
 
 
     </LinearLayout>
@@ -216,7 +222,8 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="100dp"
                 android:layout_marginRight="60dp"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:background="#40070606"/>
 
 
             <!-- This part is the area where the products will come. You should add the products programmatically. -->
