@@ -18,9 +18,7 @@ public class ShoppingListDbHelper extends SQLiteOpenHelper {
 
     public ShoppingListDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         String SQL_CREATE_ENTRIES =
@@ -30,12 +28,8 @@ public class ShoppingListDbHelper extends SQLiteOpenHelper {
                         ShoppingListContract.ShoppingListEntry.COLUMN_NAME_PRODUCTTYPE + " TEXT," +
                         ShoppingListContract.ShoppingListEntry.COLUMN_NAME_PRICE + " REAL," +
                         ShoppingListContract.ShoppingListEntry.COLUMN_NAME_MEMBER_NUMBER + " TEXT)";
-
         db.execSQL(SQL_CREATE_ENTRIES);
     }
-
-
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + ShoppingListContract.ShoppingListEntry.TABLE_NAME);

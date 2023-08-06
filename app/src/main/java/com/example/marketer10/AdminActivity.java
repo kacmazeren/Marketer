@@ -25,15 +25,15 @@ public class AdminActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = ((EditText)findViewById(R.id.editTextUsername)).getText().toString();
                 String password = ((EditText)findViewById(R.id.editTextPassword)).getText().toString();
-                if (username.equals("1") && password.equals("1")) {
+                if (username.equals("1111") && password.equals("1111")) {
                     // Open admin page
-                    Intent intent = new Intent(AdminActivity.this, AdminActivity.class);
+                    Intent intent = new Intent(AdminActivity.this, AdminPageActivity.class);
                     startActivity(intent);
                 } else {
+                    Intent intent = new Intent(AdminActivity.this, AdminActivity.class);
                     Toast.makeText(AdminActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                 }
-                Intent intent = new Intent(AdminActivity.this, AdminPageActivity.class);
-                startActivityForResult(intent, 1);
+
             }
         });
     }

@@ -22,7 +22,6 @@ public class ProductDBHelper extends SQLiteOpenHelper {
     public ProductDBHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
     @Override
     public void onCreate(SQLiteDatabase productDBHelper) {
         String CREATE_TABLE = "CREATE TABLE " + ProductEntry.TABLE_NAME + "("
@@ -38,11 +37,7 @@ public class ProductDBHelper extends SQLiteOpenHelper {
                 + ProductEntry.COLUMN_UNIT_PRICE + " REAL"
                 + ")";
         productDBHelper.execSQL(CREATE_TABLE);
-
-
     }
-
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + ProductEntry.TABLE_NAME);
@@ -67,17 +62,7 @@ public class ProductDBHelper extends SQLiteOpenHelper {
         db.insert(ProductEntry.TABLE_NAME, null, values);
         db.close();
     }
-    public void importFromCSV(InputStream csvFileInputStream) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        PriceCSVReader csvReader = new PriceCSVReader(csvFileInputStream);
-        List<Product> productList = csvReader.parse();
 
-        for (Product product : productList) {
-            addProduct(product);
-        }
-
-        db.close();
-    }
 
     public List<Product> getTomatoes() {
         List<Product> productList = new ArrayList<>();

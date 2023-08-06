@@ -14,7 +14,6 @@ public class MarketDBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ADDRESS = "address";
     public static final String COLUMN_LATITUDE = "latitude";
     public static final String COLUMN_LONGITUDE = "longitude";
-
     private static final String CREATE_TABLE_MARKETS = "CREATE TABLE " + TABLE_MARKETS + " (" +
             COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_NAME + " TEXT, " +
@@ -22,16 +21,13 @@ public class MarketDBHelper extends SQLiteOpenHelper {
             COLUMN_LATITUDE + " REAL, " +
             COLUMN_LONGITUDE + " REAL" +
             ")";
-
     public MarketDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_MARKETS);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_MARKETS);

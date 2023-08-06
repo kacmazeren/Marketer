@@ -23,13 +23,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String CREATE_MEMBERS_TABLE = "CREATE TABLE members (id INTEGER PRIMARY KEY, email TEXT, name TEXT, surname TEXT, phone TEXT, address TEXT, password TEXT, member_number TEXT)";
         db.execSQL(CREATE_MEMBERS_TABLE);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS members");
         onCreate(db);
     }
-
     public boolean isMemberExists(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM members WHERE email = ?";
@@ -38,7 +36,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return count > 0;
     }
-
     public boolean checkCredentials(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM members WHERE email = ?";
@@ -184,4 +181,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.update("Members", contentValues, "email = ?", new String[]{email}) > 0;
     }
 
+    // Add a new protected method for getting a readable database
+    protected SQLiteDatabase getReadableDb() {
+        return this.getReadableDatabase();
+    }
+
+    // And a similar one for getting a writable database
+    protected SQLiteDatabase getWritableDb() {
+        return this.getWritableDatabase();
+    }
 }

@@ -109,13 +109,10 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this) == ConnectionResult.SUCCESS) {
             // Google Play Services are available
             setContentView(R.layout.activity_acoount);
@@ -124,7 +121,6 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
             // Google Play Services are not available.
             TextView errorMessage = findViewById(R.id.map_error_message);
             errorMessage.setVisibility(View.VISIBLE);
-
         }
         // Initialize EditTexts
         editTextName = findViewById(R.id.editTextName);
@@ -134,10 +130,7 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextAddress = findViewById(R.id.editTextAddress);
         statisticButton = findViewById(R.id.statisticButton);
-
-
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
 
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
@@ -195,7 +188,7 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
 
         // Divide the groceryList into separate lists
         for (String item : groceryList) {
-            String[] parts = item.split(","); // Assume each item is in format "Store,ProductType,Price"
+            String[] parts = item.split(",");
            String supermarket = parts[0];
             String productType = parts[1]; // Second part is ProductType
             String price = parts[2]; // Third part is Price
@@ -240,9 +233,10 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 String[] parts = selectedItem.split(",");
-                String productType = parts[0]; // First part is ProductType
-                String price = parts[1]; // Second part is Price
-                String quantity = parts[2]; // Third part is Quantity
+                String supermarket = parts[0];
+                String productType = parts[1]; // First part is ProductType
+                String price = parts[2]; // Second part is Price
+                String quantity = parts[3]; // Third part is Quantity
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
                 builder.setTitle("Edit Quantity");
@@ -259,7 +253,7 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String newQuantity = input.getText().toString();
-                        String newProductInfo = productType + ", " + price + ", " + newQuantity;
+                        String newProductInfo = supermarket + ", " + productType + ", " + price + ", " + newQuantity;
                         groceryListTesco.set(position, newProductInfo); // Update the item at the current position
                         adapterTesco.notifyDataSetChanged(); // Notify the adapter about the change
 
@@ -285,9 +279,10 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 String[] parts = selectedItem.split(",");
-                String productType = parts[0]; // First part is ProductType
-                String price = parts[1]; // Second part is Price
-                String quantity = parts[2]; // Third part is Quantity
+                String supermarket = parts[0];
+                String productType = parts[1]; // First part is ProductType
+                String price = parts[2]; // Second part is Price
+                String quantity = parts[3]; // Third part is Quantity
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
                 builder.setTitle("Edit Quantity");
@@ -304,7 +299,7 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String newQuantity = input.getText().toString();
-                        String newProductInfo = productType + ", " + price + ", " + newQuantity;
+                        String newProductInfo = supermarket + ", " + productType + ", " + price + ", " + newQuantity;
                         groceryListDunnes.set(position, newProductInfo); // Update the item at the current position
                         adapterDunnes.notifyDataSetChanged(); // Notify the adapter about the change
 
@@ -328,9 +323,10 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 String[] parts = selectedItem.split(",");
-                String productType = parts[0]; // First part is ProductType
-                String price = parts[1]; // Second part is Price
-                String quantity = parts[2]; // Third part is Quantity
+                String supermarket = parts[0];
+                String productType = parts[1]; // First part is ProductType
+                String price = parts[2]; // Second part is Price
+                String quantity = parts[3]; // Third part is Quantity
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
                 builder.setTitle("Edit Quantity");
@@ -347,7 +343,7 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String newQuantity = input.getText().toString();
-                        String newProductInfo = productType + ", " + price + ", " + newQuantity;
+                        String newProductInfo = supermarket + ", " + productType + ", " + price + ", " + newQuantity;
                         groceryListLidl.set(position, newProductInfo); // Update the item at the current position
                         adapterLidl.notifyDataSetChanged(); // Notify the adapter about the change
 
@@ -365,10 +361,6 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
                 builder.show();
             }
         });
-
-
-
-
 
         // Fetch email from Intent
         String email = getIntent().getStringExtra("email");
@@ -411,6 +403,11 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
         String memberNumber = memberNumberTextView.getText().toString();
 
         saveListButton = findViewById(R.id.saveListButton);
+        if(memberNumber.startsWith("S")) {
+            saveListButton.setVisibility(View.INVISIBLE);
+        }else {
+            saveListButton.setVisibility(View.VISIBLE);
+        }
         saveListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -427,6 +424,8 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
                                 memberNumber   // memberNumber
                         );
                     }
+                    Toast.makeText(AccountActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -581,12 +580,6 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
         String adminEmail = "kacmazeren66@gmail.com";  // Replace with the actual admin email
         return userEmail.equals(adminEmail);
     }
-
-
-
-
-
-
 
     private com.google.android.gms.maps.model.LatLng userLocation, dunnesLocation, tescoLocation , lidlLocation;
 

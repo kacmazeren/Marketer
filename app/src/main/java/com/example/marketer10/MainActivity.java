@@ -63,22 +63,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         lvProducts = findViewById(R.id.lv_products);
         grocery = findViewById(R.id.grocery);
         groceryListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, groceryList);
         grocery.setAdapter(groceryListAdapter);
 
-
         boolean fromAccountActivity = getIntent().getBooleanExtra("fromAccountActivity", false);
 
-
         Button loginRegisterButton = findViewById(R.id.loginRegisterButton);
-
         if (fromAccountActivity) {
-
-
             loginRegisterButton.setVisibility(View.GONE);
         }
 

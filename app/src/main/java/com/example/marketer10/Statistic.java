@@ -33,22 +33,15 @@ import java.util.Map;
 
 public class Statistic extends AppCompatActivity {
 
-    private ListView orderHistoryListView;
-    Button deleteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statistic);
 
-
-
-
         ShoppingListDbHelper dbHelper = new ShoppingListDbHelper(this);
-
         // Get all shopping items
         List<ShoppingItem> shoppingItems = dbHelper.getAllShoppingItems();
-
         // Read itemPrice.csv and store the items in a HashMap
         HashMap<String, Product> productMap = new HashMap<>();
         ArrayList<Product> productList = new ArrayList<>();
@@ -90,6 +83,7 @@ public class Statistic extends AppCompatActivity {
         SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         for (ShoppingItem item : shoppingItems) {
+            String date = item.getDate().trim();
             String supermarket = item.getSupermarket().trim();
             String productType = item.getProductType().trim();
             String productMemberNumber = item.getMemberNumber();
@@ -97,14 +91,18 @@ public class Statistic extends AppCompatActivity {
             String memberNumber = intent.getStringExtra("memberNumber");
 
 
-            Product product = productMap.get(supermarket + productType);
-            if(  productMemberNumber.equals(memberNumber)) {
-                String formattedDate = outputFormat.format(product.getDate());
-                String productInfo = product.getID() + " - " + formattedDate + " - " + product.getSupermarket() + " - " + product.getProductType() + " - " + product.getWeight() + " - " + product.getPrice();
-                matchedProducts.add(productInfo);
+            for (Product product : productList) {
+                if (product.getSupermarket().equals(supermarket) && product.getProductType().equals(productType)) {
+                    if(  productMemberNumber.equals(memberNumber)) {
+
+                        String productInfo = product.getID() + " - " + supermarket + " - " + date + " - " + productType + " - " + product.getWeight() + " - " + item.getPrice();
+                        matchedProducts.add(productInfo);
+                        // We found a match, so we can stop searching through the productList
+                        break;
+                    }
+                }
             }
         }
-
         // Display the matched products in a ListView
         TableLayout historyTable = findViewById(R.id.historyTable);
 

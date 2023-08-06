@@ -33,4 +33,6 @@ public class ShoppingItem {
     public String getMemberNumber() { // new getter
         return memberNumber;
     }
+
+
 }

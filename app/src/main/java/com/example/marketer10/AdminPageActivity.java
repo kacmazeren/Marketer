@@ -102,6 +102,8 @@ public class AdminPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Close the AdminPage
+                Intent intent = new Intent(AdminPageActivity.this, AccountActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
