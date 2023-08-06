@@ -543,12 +543,8 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
                 boolean isUpdateSuccessful = db.updatePassword(email, newPassword);
                 if (isUpdateSuccessful) {
                     Toast.makeText(AccountActivity.this, "Password update successful", Toast.LENGTH_SHORT).show();
-                    // Send an email notification
-                    String subject = "Password Change Notification";
-                    String message = "Your password has been successfully changed.";
-                    SendMail sendMail = new SendMail(AccountActivity.this, email, subject, message);
-                    sendMail.execute();
-                } else {
+
+                        } else {
                     Toast.makeText(AccountActivity.this, "Password update failed", Toast.LENGTH_SHORT).show();
                 }
                 // Hide the password layout
@@ -577,7 +573,7 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
     }
 
     public boolean isAdmin(String userEmail) {
-        String adminEmail = "kacmazeren66@gmail.com";  // Replace with the actual admin email
+        String adminEmail = "kacmazeren66@gmail.com";
         return userEmail.equals(adminEmail);
     }
 
@@ -633,6 +629,7 @@ public class AccountActivity extends AppCompatActivity implements OnMapReadyCall
                             markers.put("tesco", tescoMarker);
 
                             // Add 75 meters to Tesco's distance for Dunnes
+                            //This is because Dunnes stores cannot find on Google Maps by name or Places ID.
                             TextView dunnesTextView = findViewById(R.id.distanceDunnes);
                             dunnesTextView.setText("Dunnes: " + (distance + 75) + " meters away");
                         }

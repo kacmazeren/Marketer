@@ -77,7 +77,7 @@ public class MemberEdit extends AppCompatActivity {
         if (intent != null) {
             String memberData = intent.getStringExtra("memberData");
             String[] memberComponents = memberData.split(" - ");
-            email = memberComponents[1];  // assuming email is at position 1
+            email = memberComponents[1];
 
             // Set data to EditTexts
             editTextName.setText(memberComponents[2]);
@@ -143,7 +143,7 @@ public class MemberEdit extends AppCompatActivity {
 
                 if (isDeleteSuccessful) {
                     Toast.makeText(MemberEdit.this, "Member deleted", Toast.LENGTH_SHORT).show();
-                    // Here, you may want to redirect the user to another Activity or do other appropriate action
+
                 } else {
                     Toast.makeText(MemberEdit.this, "Deletion failed", Toast.LENGTH_SHORT).show();
                 }

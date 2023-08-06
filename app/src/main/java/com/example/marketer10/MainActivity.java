@@ -302,7 +302,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        requestLocationPermissions();
     }
     private void openAccountPage(String email) {
         // Perform the necessary action after successful sign-in or registration
@@ -359,7 +358,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+// This was my first attempt to use Google Maps API services. Doesn't serve in this class
 
         class FindNearbyMarketsTask extends AsyncTask<Void, Void, List<Market>> {
         private double latitude;
@@ -378,7 +377,6 @@ public class MainActivity extends AppCompatActivity {
             protected void onPostExecute(List<Market> markets) {
                 super.onPostExecute(markets);
 
-                // ...
 
                 for (Market market : markets) {
                     ContentValues values = new ContentValues();

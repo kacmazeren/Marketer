@@ -107,7 +107,7 @@ public class EmailActivity extends AppCompatActivity {
 
                                 boolean isSaved = db.saveMemberToDatabase(email, name, surname, phone, address, newPassword, memberNumber);
                                 if (isSaved) {
-                                    sendRegistrationEmail(email);
+
                                     openAccountPage(email);
                                 } else {
                                     Toast.makeText(EmailActivity.this, "Failed to save member data", Toast.LENGTH_SHORT).show();
@@ -133,20 +133,13 @@ ArrayList empty= new ArrayList<>();
             startActivity(intent);
     }
 
-    private void sendRegistrationEmail(String recipientEmail) {
-        // Create new SendMail object and execute it on its own thread
-        String emailBody = "You have successfully registered. Thank you for using the marketer.";
-        SendMail sm = new SendMail(this, recipientEmail, "Successful Registration", emailBody);
-        sm.execute();
-    }
+
 
     private String generateMemberNumber(String prefix) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
         String dateTimeString = dateFormat.format(new Date());
         return prefix + dateTimeString;
     }
-
-
 
 
 
