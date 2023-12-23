@@ -4,5 +4,4 @@ The main purpose of the Marketer project is to create a user-friendly Android ap
 Marketer is an innovative Android application that aims to revolutionize the grocery shopping experience. It offers a platform where users can compare grocery prices across various markets and order their preferred items online.
 To run the app; Download the jar file under gradle/wrapper and run with your IDE (Android studio,Eclipse or Iteljit)
 Database added to the files
-admin username:1111 password:1111
-users;  email:aaa password:Anadolu001.   email:bbb password:Anadolu001.     email:ccc password:Anadolu001.
+
